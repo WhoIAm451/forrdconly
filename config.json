@@ -1,7 +1,7 @@
 {
   "SOUNDCLOUD_CLIENT_ID": "",
   "MAX_PLAYLIST_SIZE": 20,
-  "PREFIX": "!",
+  "PREFIX": "+",
   "PRUNING": false,
   "LOCALE": "fr",
   "STAY_TIME": 30,
