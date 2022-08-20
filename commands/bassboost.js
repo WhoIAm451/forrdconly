@@ -2,11 +2,10 @@ const { MessageEmbed } = require("discord.js");
 const { TrackUtils } = require("erela.js");
 const levels = {
   none: 0.0,
-  low: 10,
-  medium: 0.3,
-  high: 0.35,
-  critical: 0.6,
-  PSZMODE: 1,
+  low: 0.5,
+  ratirl: 1,
+  pszmode: 5,
+  inaudible: 10,
 };
 module.exports = {
   name: "bassboost",
@@ -48,7 +47,7 @@ module.exports = {
     if (!args[0])
       return client.sendTime(
         message.channel,
-        "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `medium`, `high`, `critical`, `PSZMODE`"
+        "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `ratirl`, `pszmode`, `inaudible`"
       );
 
     let level = "none";
@@ -70,7 +69,7 @@ module.exports = {
     options: [
       {
         name: "level",
-        description: `Donne un bassboost qui existe. Par exemple : none, low, medium, high, critical, PSZMODE`,
+        description: `Donne un bassboost qui existe. Par exemple : none, low, ratirl, pszmode, inaudible`,
         value: "[level]",
         type: 3,
         required: true,
@@ -117,7 +116,7 @@ module.exports = {
       if (!args)
         return client.sendTime(
           interaction,
-          "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `medium`, `high`, `critical`, `PSZMODE`"
+          "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `ratirl`, `pszmode`, `inaudible`"
         );
 
       let level = "none";
