@@ -10,7 +10,7 @@ const levels = {
 module.exports = {
   name: "bassboost",
   description: "Grosse bass sa mère",
-  usage: "<none|low|medium|high|critical|PSZMODE",
+  usage: "<none|low|ratirl|pszmode|inaudible",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
     member: [],
