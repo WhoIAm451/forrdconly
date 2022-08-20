@@ -1,12 +1,2 @@
-.vscode
-.github
 node_modules
-.env
-.gitignore
-.node-version
-.prettierrc
-.replit
-config.json
-CODE_OF_CONDUCT.md
-CONTRIBUTING.md
-Procfile
+npm-debug.log

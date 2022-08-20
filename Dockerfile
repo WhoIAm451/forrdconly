@@ -1,24 +1,11 @@
-FROM node:16.14
+FROM node:16.3.0-alpine
 
-ENV USER=evobot
+WORKDIR /usr/src/app
 
-# install python and make
-RUN apt-get update && \
-	apt-get install -y python3 build-essential && \
-	apt-get purge -y --auto-remove
+COPY package*.json ./
 
-# create evobot user
-RUN groupadd -r ${USER} && \
-	useradd --create-home --home /home/evobot -r -g ${USER} ${USER}
-
-# set up volume and user
-USER ${USER}
-WORKDIR /home/evobot
-
-COPY --chown=${USER}:${USER} package*.json ./
 RUN npm install
-VOLUME [ "/home/evobot" ]
 
-COPY --chown=${USER}:${USER}  . .
+COPY . .
 
-ENTRYPOINT [ "npm", "run", "start" ]
+CMD [ "node", "index.js" ]
