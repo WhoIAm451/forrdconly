@@ -5,16 +5,13 @@ const levels = {
   low: 0.2,
   medium: 0.3,
   high: 0.35,
-  critical: 1,
-  HARDCORE: 10,
-  RATIRL: 50,
-  PSZ: 100,
-  AHDGOXSYDGOQSGXDOYS: 10000
+  critical: 0.6,
+  PSZMODE: 1,
 };
 module.exports = {
   name: "bassboost",
   description: "Grosse bass sa mère",
-  usage: "<none|low|medium|high|critical|HARDCORE|RATIRL|PSZ|AHDGOXSYDGOQSGXDOYS>",
+  usage: "<none|low|medium|high|critical|PSZMODE",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
     member: [],
@@ -51,7 +48,7 @@ module.exports = {
     if (!args[0])
       return client.sendTime(
         message.channel,
-        "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `medium`, `high`, `critical`, `HARDCORE`, `RATIRL`, `PSZ`, `AHDGOXSYDGOQSGXDOYS`"
+        "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `medium`, `high`, `critical`, `PSZMODE`"
       );
 
     let level = "none";
@@ -73,7 +70,7 @@ module.exports = {
     options: [
       {
         name: "level",
-        description: `Donne un bassboost qui existe. Par exemple : none, low, medium, high, critical, HARDCORE, RATIRL, PSZ, AHDGOXSYDGOQSGXDOYS`,
+        description: `Donne un bassboost qui existe. Par exemple : none, low, medium, high, critical, PSZMODE`,
         value: "[level]",
         type: 3,
         required: true,
@@ -120,7 +117,7 @@ module.exports = {
       if (!args)
         return client.sendTime(
           interaction,
-          "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `medium`, `high`, `critical`, `HARDCORE`, `RATIRL`, `PSZ`, `AHDGOXSYDGOQSGXDOYS`"
+          "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `medium`, `high`, `critical`, `PSZMODE`"
         );
 
       let level = "none";
