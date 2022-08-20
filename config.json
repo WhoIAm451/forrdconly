@@ -1,9 +1,9 @@
 {
-  "SOUNDCLOUD_CLIENT_ID": "",
+  "TOKEN": "process.env.TOKEN",
   "MAX_PLAYLIST_SIZE": 50,
   "PREFIX": "+",
   "PRUNING": false,
-  "LOCALE": "fr",
+  "LOCALE": "en",
   "STAY_TIME": 30,
   "DEFAULT_VOLUME": 100
 }
