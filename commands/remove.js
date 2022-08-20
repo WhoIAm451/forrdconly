@@ -3,7 +3,7 @@ const { TrackUtils } = require("erela.js");
 
 module.exports = {
   name: "remove",
-  description: `Remove a song from the queue`,
+  description: `Retirer une musique de ta playlist de fou`,
   usage: "[number]",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -24,12 +24,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Ya pas de musique pd**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **Tu dois être dans un voc, t'es con ou quoi ?**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -37,22 +37,22 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in the same voice channel as me to use this command!**"
+        "❌ | **T'es pas dans le meme voc que moi, l'odeur**"
       );
 
     if (!player.queue || !player.queue.length || player.queue.length === 0)
-      return message.channel.send("There is nothing in the queue to remove");
+      return message.channel.send("Ya rien a retirer");
     let rm = new MessageEmbed()
       .setDescription(
-        `✅ **|** Removed track **\`${Number(args[0])}\`** from the queue!`
+        `✅ **|** Hop t'es ban **\`${Number(args[0])}\`**`
       )
       .setColor("GREEN");
     if (isNaN(args[0]))
       rm.setDescription(
-        `**Usage - **${client.botconfig.prefix}\`remove [track]\``
+        `**C pas si dur mec - **${client.botconfig.prefix}\`remove [track]\``
       );
     if (args[0] > player.queue.length)
-      rm.setDescription(`The queue has only ${player.queue.length} songs!`);
+      rm.setDescription(`Tu peux pas ya que ${player.queue.length} musiques!`);
     await message.channel.send(rm);
     player.queue.remove(Number(args[0]) - 1);
   },
@@ -64,7 +64,7 @@ module.exports = {
         value: "[track]",
         type: 4,
         required: true,
-        description: "Remove a song from the queue",
+        description: "Suprime musique",
       },
     ],
     /**
@@ -82,12 +82,12 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Ya pas de musique pd**"
         );
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Tu dois être en voc pour jouer une musique, espece d'idiot**"
         );
       if (
         guild.me.voice.channel &&
@@ -95,20 +95,20 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          "❌ | **You must be in the same voice channel as me to use this command!**"
+          "❌ | **T'es pas dans le meme voc que moi, l'odeur**"
         );
 
       if (!player.queue || !player.queue.length || player.queue.length === 0)
-        return client.sendTime("❌ | **Nothing is playing right now...**");
+        return client.sendTime("❌ | **Ya pas de musique pd**");
       let rm = new MessageEmbed()
         .setDescription(
-          `✅ | **Removed track** \`${Number(args[0])}\` from the queue!`
+          `✅ | **Hop t'es ban** \`${Number(args[0])}\``
         )
         .setColor("GREEN");
       if (isNaN(args[0]))
         rm.setDescription(`**Usage:** \`${GuildDB.prefix}remove [track]\``);
       if (args[0] > player.queue.length)
-        rm.setDescription(`The queue has only ${player.queue.length} songs!`);
+        rm.setDescription(`Tu peux pas ya que ${player.queue.length} musiques!`);
       await interaction.send(rm);
       player.queue.remove(Number(args[0]) - 1);
     },

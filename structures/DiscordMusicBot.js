@@ -164,7 +164,7 @@ class DiscordMusicBot extends Client {
           .setAuthor(`Now playing ♪`, this.botconfig.IconURL)
           .setThumbnail(player.queue.current.displayThumbnail())
           .setDescription(`[${track.title}](${track.uri})`)
-          .addField("Requested by", `${track.requester}`, true)
+          .addField("Demander par ce fils de pute", `${track.requester}`, true)
           .addField(
             "Duration",
             `\`${prettyMilliseconds(track.duration, {

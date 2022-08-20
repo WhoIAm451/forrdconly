@@ -5,11 +5,16 @@ const levels = {
   low: 0.2,
   medium: 0.3,
   high: 0.35,
+  critical: 1,
+  HARDCORE: 10,
+  RATIRL: 50,
+  PSZ: 100,
+  AHDGOXSYDGOQSGXDOYS: 10000
 };
 module.exports = {
   name: "bassboost",
-  description: "Enables bass boosting audio effect",
-  usage: "<none|low|medium|high>",
+  description: "Grosse bass sa mère",
+  usage: "<none|low|medium|high|critical|HARDCORE|RATIRL|PSZ|AHDGOXSYDGOQSGXDOYS>",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
     member: [],
@@ -27,12 +32,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Ya pas de musique pd**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **Tu dois être dans un voc, t'es con ou quoi ?**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -40,13 +45,13 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in the same voice channel as me to use this command!**"
+        "❌ | **T'es pas dans le meme voc que moi, l'odeur**"
       );
 
     if (!args[0])
       return client.sendTime(
         message.channel,
-        "**Please provide a bassboost level. \nAvailable Levels:** `none`, `low`, `medium`, `high`"
+        "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `medium`, `high`, `critical`, `HARDCORE`, `RATIRL`, `PSZ`, `AHDGOXSYDGOQSGXDOYS`"
       );
 
     let level = "none";
@@ -61,14 +66,14 @@ module.exports = {
 
     return client.sendTime(
       message.channel,
-      `✅ | **Bassboost level set to** \`${level}\``
+      `✅ | **Bassboost en mode :** \`${level}\``
     );
   },
   SlashCommand: {
     options: [
       {
         name: "level",
-        description: `Please provide a bassboost level. Available Levels: low, medium, high, or none`,
+        description: `Donne un bassboost qui existe. Par exemple : none, low, medium, high, critical, HARDCORE, RATIRL, PSZ, AHDGOXSYDGOQSGXDOYS`,
         value: "[level]",
         type: 3,
         required: true,
@@ -97,12 +102,12 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Ya pas de musique pd**"
         );
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Tu dois être en voc pour jouer une musique, espece d'idiot**"
         );
       if (
         guild.me.voice.channel &&
@@ -110,12 +115,12 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          "❌ | **You must be in the same voice channel as me to use this command!**"
+          "❌ | **T'es pas dans le meme voc que moi, l'odeur**"
         );
       if (!args)
         return client.sendTime(
           interaction,
-          "**Please provide a bassboost level. \nAvailable Levels:** `none`, `low`, `medium`, `high`"
+          "**Donne un bassboost qui existe. \nPar exemple :** `none`, `low`, `medium`, `high`, `critical`, `HARDCORE`, `RATIRL`, `PSZ`, `AHDGOXSYDGOQSGXDOYS`"
         );
 
       let level = "none";
@@ -129,7 +134,7 @@ module.exports = {
 
       return client.sendTime(
         interaction,
-        `✅ | **Set the bassboost level to** \`${level}\``
+        `✅ | **Bassboost en mode :** \`${level}\``
       );
     },
   },
